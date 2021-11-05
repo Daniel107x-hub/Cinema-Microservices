@@ -1,0 +1,14 @@
+version: "2.1"
+services:
+  eureka:
+    image: igs-wms-docker-stable-local.artifactory-na.honeywell.com/eureka:0.1
+    container_name: eureka
+    ports:
+      - 8761:8761
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - VIRTUAL_HOST=localhost
+      - PORT=8761
+      - EUREKA_SERVER_ENABLESELFPRESERVATION=true
+    networks:
+      - default
